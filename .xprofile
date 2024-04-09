@@ -5,9 +5,7 @@ xset s off && xset -dpms
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 xwallpaper --zoom ~/.arch.jpg
 dwmblocks &
-wireplumber &
 pipewire &
-pipewire-pulse &
 export EDITOR="nvim"
 xinput --disable 9
 sudo sv down /etc/runit/sv/bluetooth
