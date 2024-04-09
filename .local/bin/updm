@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rate-mirrors --save ~/.cache/mirrorlist artix
+sudo cp ~/.cache/mirrorlist /etc/pacman.d/mirrorlist

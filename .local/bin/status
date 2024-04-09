@@ -1,0 +1,62 @@
+#!/bin/sh
+
+torrent(){
+	t_status=$(transmission-remote -l | grep % |
+	sed " # The letters are for sorting and will not appear.
+	s/.*Stopped.*/A St/;
+	s/.*Seeding.*/Z Se/;
+	s/.*100%.*/N Dn/;
+	s/.*Idle.*/B Id/;
+	s/.*Uploading.*/L Up/;
+	s/.*%.*/M Do/" |
+		sort -h | uniq -c | awk '{print $3 $1}' | paste -sd ' ' -)
+	echo -e "$t_status"
+}
+hot(){
+	core0=$(sensors | grep "Core 0" | awk '{print $3}' | sed s/.0//g | sed s/+//g | sed s/C//g)
+	core1=$(sensors | grep "Core 1" | awk '{print $3}' | sed s/.0//g | sed s/+//g | sed s/C//g)
+	echo -e "$core0$core1"
+}
+temp(){
+	cache=$(du -h ~/.cache/ | tail -1 | awk '{print $1}')
+	pkg=$(du -h /var/cache/pacman/pkg/ | awk '{print $1}')
+	echo -e "$cache $pkg"
+}
+pkg(){
+    upkg=$(pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e "s/^0$//g")
+    krnl=$(pacman -Qu | grep "linux-lts" | wc -l | sed -e "s/^0$//g")
+    [[ "$upkg" -eq "" ]] && upkg="U"
+    [[ "$krnl" -ne "" ]] && krnl="K" || krnl="P"
+    echo -e "$krnl$upkg"
+} 
+
+volume(){
+    [ "$(pulsemixer --get-mute)" = "1" ] && printf "Mute" && exit
+    vol=$(pulsemixer --get-volume | awk '{print $1}')
+    echo -e "$vol"
+}
+
+battery(){
+    capacity=$(cat /sys/class/power_supply/"BAT0"/capacity)
+    status1=$(cat /sys/class/power_supply/"BAT0"/status)
+	[[ ${status1:0:1} == "C" ]] && status="" || status=""
+    echo -e "${status}$capacity"
+}
+
+disk(){
+    sizeR=$(df | grep /$ | awk '{print $5}')
+    echo -e "$sizeR"
+}
+
+ram(){
+    echo -e $(free -h | awk '/^Mem:/ {print $3 "/" $2}')
+}
+
+internet(){
+	var=$(cat /sys/class/net/w*/operstate 2>/dev/null)
+	var=${var^}
+	echo -e ${var:0:1}
+}
+
+xsetroot -name " $(torrent) $(ram) $(battery) $(hot) $(internet) $(temp) $(disk) $(pkg) $(volume) \
+ $(date +"%a %m/%d %H:%M") $(TZ=Australia/Sydney date +"%H:%M")"
