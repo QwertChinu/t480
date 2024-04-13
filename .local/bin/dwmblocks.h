@@ -1,1 +1,0 @@
-/home/chinu/Downloads/prog/dwmblocks/blocks.h
