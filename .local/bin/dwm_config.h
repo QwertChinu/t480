@@ -1,0 +1,1 @@
+/home/chinu/Downloads/prog/dwm/config.h
