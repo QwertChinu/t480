@@ -44,6 +44,8 @@ tlp-runit
 ttf-font-awesome
 ttf-jetbrains-mono-git
 unclutter
+unzip
+wget
 xclip
 xcompmgr-git
 xdotool
@@ -56,3 +58,5 @@ xorg-xsetroot
 xwallpaper
 yt-dlp
 ytfzf-git
+zathura
+zathura-pdf-mupdf

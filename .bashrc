@@ -41,3 +41,5 @@ alias dt="xinput --disable 9"
 alias ro="p -Qqtd"
 alias bs="sudo sv status /etc/runit/sv/bluetooth"
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias yt="ytfzf -f"
+alias bl="sudo xbacklight -set"
