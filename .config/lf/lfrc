@@ -1,3 +1,15 @@
+
+# Basic vars
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons
+set period 1
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+set autoquit true
+
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -53,6 +65,12 @@ cmd extract ${{
 		esac
 	}
 }}
+
+map gG cd ~/.config/lf
+map gm cd /mnt
+map gp cd ~/Downloads/prog
+map gb cd ~/.local/bin
+map gv cd ~/Downloads/video
 
 map D delete
 map <enter> shell

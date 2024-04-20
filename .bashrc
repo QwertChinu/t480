@@ -13,6 +13,7 @@ set editing-mode vi
 set show-mode-in-prompt on
 set vi-ins-mode-string +
 set vi-cmd-mode-string :
+set -o vi
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx
 
 alias v="nvim"
@@ -25,7 +26,7 @@ alias SS="sudo systemctl"
 alias gbin="cd ~/.local/bin/"
 alias upkg="paru -Syyy && updblocks 36"
 alias upd="paru -Qqe > ~/.local/bin/pkg && cfg commit -am 'System update' && cfg push && pass git push && updm && paru -Syu && sudo paru -Sc && sudo fstrim -a -v && updblocks 36 && updblocks 37 && updblocks 38"
-alias e="lf"
+alias e="lfub"
 alias tsmm="watch -n 10 transmission-remote -l"
 alias tsm="transmission-remote"
 alias tsmd="transmission-daemon --download-dir $HOME/Downloads/video"
@@ -40,6 +41,11 @@ alias et="xinput --enable 9"
 alias dt="xinput --disable 9"
 alias ro="p -Qqtd"
 alias bs="sudo sv status /etc/runit/sv/bluetooth"
+alias bu="sudo sv up /etc/runit/sv/bluetooth"
+alias bd="sudo sv down /etc/runit/sv/bluetooth"
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias yt="ytfzf -f"
 alias bl="sudo xbacklight -set"
+alias fix_date="sudo ntpdate pool.ntp.org"
+
+neofetch
