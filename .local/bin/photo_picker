@@ -2,5 +2,5 @@
 
 mkdir -p selected
 rm -rf selected/*
-sxiv -t -q -o * | xargs cp -t selected
+nsxiv -t -q -o * | xargs cp -t selected
 

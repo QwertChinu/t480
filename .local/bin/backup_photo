@@ -9,3 +9,7 @@ rsync -aAXv ~/mtp/Internal\ shared\ storage/DCIM/ /mnt/Pictures/litu/ --dry-run
 rsync -aAXv ~/mtp/Internal\ shared\ storage/WhatsApp/Media/WhatsApp\ Images/ /mnt/Pictures/litu/Whatsapp/ --dry-run
 fusermount -u ~/mtp
 rsync -aAX ~/mtp/SD\ card/DCIM/ /mnt/Pictures/phone-realme7/ --info=progress2
+
+simple-mtpfs -l
+simple-mtpfs --device 1 ~/cell/
+rsync -aAXv /home/chinu/cell/SD\ card/DCIM/ /home/chinu/Downloads/pics/chinu/ --ignore-existing
