@@ -12,6 +12,7 @@ elogind-runit
 ffmpegthumbnailer
 fzf
 git
+google-chrome
 grub
 htop-vim
 intel-ucode
@@ -69,3 +70,4 @@ yt-dlp
 ytfzf-git
 zathura
 zathura-pdf-mupdf
+zip
