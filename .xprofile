@@ -7,5 +7,5 @@ xwallpaper --zoom ~/.arch.jpg
 dwmblocks &
 pipewire &
 export EDITOR="nvim"
-xinput --disable 10
+xinput --disable 9
 sudo sv down /etc/runit/sv/bluetooth

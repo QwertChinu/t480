@@ -40,6 +40,7 @@ ntp-runit
 os-prober
 paru
 pass
+pavucontrol
 pipewire
 pipewire-pulse
 poppler
@@ -51,6 +52,7 @@ simple-mtpfs
 slock
 tgpt
 tlp-runit
+transmission-cli
 ttf-font-awesome
 ttf-jetbrains-mono-git
 unclutter
