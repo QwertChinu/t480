@@ -44,7 +44,6 @@ pavucontrol
 pipewire
 pipewire-pulse
 poppler
-python-ueberzug-git
 rate-mirrors
 rsync
 runit
@@ -55,6 +54,7 @@ tlp-runit
 transmission-cli
 ttf-font-awesome
 ttf-jetbrains-mono-git
+ueberzugpp-new-git
 unclutter
 unzip
 wget
