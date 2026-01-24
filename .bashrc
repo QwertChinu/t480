@@ -2,7 +2,7 @@
 # ~/.bashrc
 #
 #
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
@@ -25,7 +25,7 @@ alias hm="cd /mnt/home/chinu/"
 alias SS="sudo systemctl"
 alias gbin="cd ~/.local/bin/"
 alias upkg="paru -Syyy && updblocks 36"
-alias upd="brc && paru -Qqe > ~/.local/bin/pkg && cfg commit -am 'System update' && cfg push && pass git push && updm && paru -Syu && sudo paru -Sc && sudo fstrim -a -v && updblocks 36 && updblocks 37 && updblocks 38"
+alias upd="fix_date && brc && paru -Qqe > ~/.local/bin/pkg && cfg commit -am 'System update' && cfg push && pass git push && updm && paru -Syu && sudo paru -Sc && sudo fstrim -a -v && updblocks 36 && updblocks 37 && updblocks 38"
 alias e="lfub"
 alias tsmm="watch -n 10 transmission-remote -l"
 alias tsm="transmission-remote"
