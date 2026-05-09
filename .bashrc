@@ -2,7 +2,7 @@
 # ~/.bashrc
 #
 #
-# If not running interactively, don't do anything.
+# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
@@ -47,5 +47,15 @@ alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias yt="ytfzf -f"
 alias bl="sudo xbacklight -set"
 alias fix_date="sudo ntpdate pool.ntp.org"
+
+wa_report() {
+    local date="$1"
+    local file="wa_data.txt"
+
+    { [[ -n "$date" ]] && grep "$date" "$file" || cat "$file"; } \
+    | awk -F'- |:| ' '{print $2}' \
+    | sort | uniq -c | sort -nr \
+    | awk '{print $2, $1}'
+}
 
 neofetch
