@@ -6,6 +6,7 @@ bash-completion
 bc
 bluez
 bluez-utils
+dosfstools
 efibootmgr
 elogind-runit
 ffmpegthumbnailer
